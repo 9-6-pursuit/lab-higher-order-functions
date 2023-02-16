@@ -85,7 +85,8 @@ function forEach(array, callback) {
   for (let i = 0; i < array.length; i++) {
     // Write your code here.
     let element = array[i]
-    callback(element, i, array)
+    let index = i;
+    callback(element, index, array)
   }
 }
 
