@@ -13,10 +13,14 @@
  *  //> undefined
  */
 function find(array, callback) {
+  //let findArray = undefined
   for (let element of array) {
-    // Write your code here.
+    if (callback(element)) {
+      return element
+    }
   }
-}
+  //return findArray
+  };
 
 /**
  * Returns an array of all elements in the array that cause the callback to return `true`. If the array is empty or no elements cause the callback to return `true`, then return an empty array.
@@ -33,12 +37,14 @@ function find(array, callback) {
  *  //> []
  */
 function filter(array, callback) {
-  const result = [];
+  let noEl = [];
   for (let element of array) {
-    // Write your code here.
+    if (callback(element) === true) {
+      noEl.push(element)
+    }
   }
-  return result;
-}
+  return noEl
+};
 
 /**
  * Returns an array where each element is transformed by the callback. If the array is empty, return an empty array.
@@ -57,7 +63,7 @@ function filter(array, callback) {
 function map(array, callback) {
   const result = [];
   for (let element of array) {
-    // Write your code here.
+    result.push(callback(element))
   }
   return result;
 }
@@ -77,9 +83,9 @@ function map(array, callback) {
  */
 function forEach(array, callback) {
   for (let i = 0; i < array.length; i++) {
-    // Write your code here.
+    callback(array[i], i, array)
   }
-}
+};
 
 // Do not change the code below this line.
 module.exports = { find, filter, map, forEach };
