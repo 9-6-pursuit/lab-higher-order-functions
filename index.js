@@ -12,9 +12,12 @@
  *  find([1, 2, 3], (element) => element < 0);
  *  //> undefined
  */
-function find(array, callback) {
-  for (let element of array) {
-    // Write your code here.
+const find = (array, callback) =>
+{
+  for (let element of array)
+  {
+    if(callback(element))
+      return element;
   }
 }
 
@@ -32,10 +35,13 @@ function find(array, callback) {
  *  filter([1, 2, 3], (element) => element < 0);
  *  //> []
  */
-function filter(array, callback) {
+const filter = (array, callback) =>
+{
   const result = [];
-  for (let element of array) {
-    // Write your code here.
+  for (let element of array)
+  {
+    if(callback(element))
+      result.push(element);
   }
   return result;
 }
@@ -54,10 +60,12 @@ function filter(array, callback) {
  *  map([], (element) => element < 0);
  *  //> []
  */
-function map(array, callback) {
+const map = (array, callback) =>
+{
   const result = [];
-  for (let element of array) {
-    // Write your code here.
+  for (let element of array)
+  {
+    result.push(callback(element));
   }
   return result;
 }
@@ -75,9 +83,11 @@ function map(array, callback) {
  *  //> 20 1 3
  *  //> 30 2 3
  */
-function forEach(array, callback) {
-  for (let i = 0; i < array.length; i++) {
-    // Write your code here.
+const forEach = (array, callback) =>
+{
+  for (let i = 0; i < array.length; i++)
+  {
+    callback(array[i], i, array);
   }
 }
 
