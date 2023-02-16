@@ -15,7 +15,10 @@
 function find(array, callback) {
   for (let element of array) {
     // Write your code here.
-  }
+    if(callback(element)){
+      return element
+    }
+  } 
 }
 
 /**
@@ -35,10 +38,15 @@ function find(array, callback) {
 function filter(array, callback) {
   const result = [];
   for (let element of array) {
-    // Write your code here.
+    if(callback(element)){
+      result.push(element)
+    }
   }
   return result;
 }
+//The function creates an empty array called result. Then, it loops through each element in the input array using a for loop. For each element, it calls the callback function with the element as an argument. If the callback function returns a truthy value, meaning that the element satisfies the condition specified in the callback, the element is added to the result.
+
+//the function returns the result. If the input array is empty or none of the elements satisfy the callback function, the result will be empty.
 
 /**
  * Returns an array where each element is transformed by the callback. If the array is empty, return an empty array.
@@ -57,7 +65,8 @@ function filter(array, callback) {
 function map(array, callback) {
   const result = [];
   for (let element of array) {
-    // Write your code here.
+    result.push(callback(element))
+
   }
   return result;
 }
@@ -77,9 +86,9 @@ function map(array, callback) {
  */
 function forEach(array, callback) {
   for (let i = 0; i < array.length; i++) {
-    // Write your code here.
+    callback(array[i], i, array)
   }
 }
-
+// The function uses a for loop to iterate through EACH element of the input array. For each element, it calls the callback function and passes in three arguments: the element itself, the index of the element in the array, and the entire array.
 // Do not change the code below this line.
 module.exports = { find, filter, map, forEach };
