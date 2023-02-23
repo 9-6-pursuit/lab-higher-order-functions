@@ -12,9 +12,14 @@
  *  find([1, 2, 3], (element) => element < 0);
  *  //> undefined
  */
-function find(array, callback) {
+const find = (array, callback = undefined) => {
+// I set the default value to undefined. 
   for (let element of array) {
     // Write your code here.
+    if (callback(element)) {
+      return element
+// I put the return statement inside the for...of loop because we are returning on the first instance - similarly to the find()array method
+    }
   }
 }
 
@@ -36,6 +41,9 @@ function filter(array, callback) {
   const result = [];
   for (let element of array) {
     // Write your code here.
+    if (callback(element) === true) {
+      result.push(element);
+    }
   }
   return result;
 }
@@ -58,6 +66,8 @@ function map(array, callback) {
   const result = [];
   for (let element of array) {
     // Write your code here.
+   let transformedElement = callback(element)
+   result.push(transformedElement)
   }
   return result;
 }
@@ -76,8 +86,11 @@ function map(array, callback) {
  *  //> 30 2 3
  */
 function forEach(array, callback) {
+  newArray = []
   for (let i = 0; i < array.length; i++) {
     // Write your code here.
+    const element = array[i];
+    newArray.push(callback(element, i, array))
   }
 }
 
